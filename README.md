@@ -1,1 +1,3 @@
-Proyecto Barberia Alura - Realizado durante el curso de la 1era ruta del programa ONE - Oracle Next Education 
+# Proyecto Barberia PI 
+## Realizado para el proyecto integrador  
+### Deivid Vanegas

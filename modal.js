@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para mostrar el modal de inicio de sesión
-    function showLoginModal() {
-        document.getElementById('loginModal').style.display = 'block';
+    // Función para mostrar el modal
+    function showModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
     }
 
     // Función para cerrar el modal
@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loginModal').style.display = 'none';
     }
 
-    // Asigna el evento de clic al botón de inicio de sesión
-    document.getElementById('showLoginForm').addEventListener('click', function(event) {
-        event.preventDefault(); // Evita que el enlace recargue la página
-        showLoginModal(); // Muestra el modal
+    // Asigna el evento de clic a los enlaces que tienen el atributo data-open
+    document.querySelectorAll('[data-open]').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el enlace recargue la página
+            var modalId = this.getAttribute('data-open'); // Obtiene el ID del modal a abrir
+            showModal(modalId); // Muestra el modal
+        });
     });
 
     // Asigna el evento de clic al botón de cierre del modal

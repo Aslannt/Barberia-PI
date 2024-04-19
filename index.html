@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width"> 
-        <title>Barbería Alura</title>
+        <title>Barbería PI</title>
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -18,10 +18,12 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                        <li><a href="ventas.html">Ventas</a></li>
-
+                        <li><a href="productos.html">Servicios</a></li>
+                        <li><a href="contacto.html">Reserva</a></li>
+                        <li><a href="ventas.html">Productos</a></li>
+                        <!-- Enlace de inicio de sesión ahora dentro de un elemento <li> -->
+                        <li><a href="#" class="open-modal" data-open="loginModal">Iniciar Sesión</a></li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -75,7 +77,34 @@
                 
             </section>
 
-
+               <!-- Modal de Inicio de Sesión y Registro -->
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="half-modal">
+                        <h2>Iniciar Sesión</h2>
+                        <form>
+                            <label for="loginEmail">Email:</label>
+                            <input type="email" id="loginEmail" name="loginEmail">
+                            <label for="loginPassword">Contraseña:</label>
+                            <input type="password" id="loginPassword" name="loginPassword">
+                            <input type="submit" value="Iniciar Sesión">
+                        </form>
+                    </div>
+                    <div class="half-modal">
+                        <h2>Registrarse</h2>
+                        <form id="registerForm">
+                            <label for="registerEmail">Email:</label>
+                            <input type="email" id="registerEmail" name="registerEmail" required>
+                            <label for="registerPassword">Contraseña:</label>
+                            <input type="password" id="registerPassword" name="registerPassword" required>
+                            <label for="confirmPassword">Confirmar Contraseña:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <input type="submit" value="Registrarse">
+                        </form>                
+                    </div>
+                </div>
+            </div>
             
         </main>
         
@@ -83,6 +112,8 @@
             <img src="imagenes/logo-blanco.png">
             <p class="copyright">&copy Copyright Barbería PI - 2024</p>
         </footer>
-        
+
+        <script src="script.js"></script> 
+        <script src="modal.js"></script>
     </body>
 </html>

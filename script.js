@@ -46,3 +46,158 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Código para el gráfico de barras
+var ctxBar = document.getElementById('barChart').getContext('2d');
+var barChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+        labels: ['Corte de Cabello', 'Corte de Barba', 'Manicura', 'Aliado', 'Tratamiento Capilar'],
+        datasets: [{
+            label: '# de Ventas',
+            data: [120, 90, 80, 70, 60],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+// Código para el gráfico de líneas
+var ctxLine = document.getElementById('lineChart').getContext('2d');
+var lineChart = new Chart(ctxLine, {
+    type: 'line',
+    data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+        datasets: [{
+            label: 'Ventas de Productos',
+            data: [100, 120, 130, 150, 180],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+// Código para el gráfico de dona
+var ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+var doughnutChart = new Chart(ctxDoughnut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Corte de Cabello', 'Corte de Barba', 'Manicura', 'Aliado', 'Tratamiento Capilar'],
+        datasets: [{
+            label: 'Porcentaje de Ventas',
+            data: [30, 25, 20, 15, 10],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)'
+            ],
+        }]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top',
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    }
+});
+
+// Código para el gráfico de área
+var ctxArea = document.getElementById('areaChart').getContext('2d');
+var areaChart = new Chart(ctxArea, {
+    type: 'line',
+    data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+        datasets: [{
+            label: 'Ventas de Shampoo',
+            data: [100, 120, 130, 150, 180],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+            fill: true
+        }, {
+            label: 'Ventas de Dermarrolers',
+            data: [80, 90, 100, 120, 150],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1,
+            fill: true
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+// Código para el gráfico de radar
+var ctxRadar = document.getElementById('radarChart').getContext('2d');
+var radarChart = new Chart(ctxRadar, {
+    type: 'radar',
+    data: {
+        labels: ['Corte de Cabello', 'Corte de Barba', 'Manicura', 'Aliado', 'Tratamiento Capilar'],
+        datasets: [{
+            label: 'Ventas',
+            data: [100, 90, 80, 70, 60],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'rgba(255, 99, 132, 1)'
+        }]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top',
+        },
+        scale: {
+            ticks: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+

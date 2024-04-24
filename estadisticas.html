@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería PI - Estadísticas</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- Asegúrate de incluir Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="caja">
+            <h1><img src="imagenes/logo.png" alt="Logo de la Barbería"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="productos.html">Servicios</a></li>
+                    <li><a href="contacto.html">Reserva</a></li>
+                    <li><a href="ventas.html">Productos</a></li>
+                    <li><a href="#" class="open-modal" data-open="loginModal">Iniciar Sesión</a></li>
+                    <li><a href="estadisticas.html">Estadísticas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Gráficos de Barbería</h2>
+        <div class="chart-container">
+            <canvas id="barChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="lineChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="doughnutChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="areaChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="radarChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="modal.js"></script>
+
+    <footer>
+        <img src="imagenes/logo-blanco.png" alt="Logo de la Barbería">
+        <p class="copyright">&copy; Copyright Barbería PI - 2024</p>
+    </footer>
+</body>
+</html>

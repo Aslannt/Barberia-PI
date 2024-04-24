@@ -390,3 +390,26 @@ input[type="submit"]:hover {
         width: 90%;
     }
 }
+
+/* Estilos generales para el contenedor de gráficos */
+.container {
+    max-width: 1200px; /* Ajusta el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px;
+}
+
+/* Estilos para los contenedores de los gráficos */
+.chart-container {
+    margin-bottom: 20px; /* Añade un margen inferior para separar los gráficos */
+}
+
+/* Estilos responsivos para asegurar que el contenido se vea bien en dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .chart-container {
+        width: 100%; /* Hace que los gráficos ocupen todo el ancho en dispositivos móviles */
+    }
+}
+
+footer a {
+    color: white;
+}

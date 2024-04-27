@@ -54,7 +54,7 @@ var barChart = new Chart(ctxBar, {
     data: {
         labels: ['Corte de Cabello', 'Corte de Barba', 'Manicura', 'Aliado', 'Tratamiento Capilar'],
         datasets: [{
-            label: '# de Ventas',
+            label: 'Número de Ventas',
             data: [120, 90, 80, 70, 60],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

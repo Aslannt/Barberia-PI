@@ -110,6 +110,8 @@ form label, form legend{
     margin: 0 0 20px;
     padding: 10px 25px;
     width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .checkbox{
@@ -133,20 +135,32 @@ form label, form legend{
     background: darkorange;
     transform: scale(1.2);
 }
+.reserva-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 
 table{
     margin: 40px 40px;
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 thead{
     background: #555555;
     color:white;
     font-weight: bold;
+    
 }
 
 td,th{
+    padding: 15px;
     border: 1px solid #000000;
-    padding: 8px 15px;
 }
 
 /*Aquí inicia el CSS para nuestra home*/
@@ -316,11 +330,13 @@ li .submenu {
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #888;
     width: 80%;
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
+
 }
 
 /* Estilos para las secciones del modal (inicio de sesión y registro) */
@@ -393,22 +409,32 @@ input[type="submit"]:hover {
 
 /* Estilos generales para el contenedor de gráficos */
 .container {
-    max-width: 1200px; /* Ajusta el ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor */
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si no hay suficiente espacio */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
+    padding: 20px; /* Añade un poco de espacio alrededor del contenedor */
 }
 
 /* Estilos para los contenedores de los gráficos */
 .chart-container {
-    margin-bottom: 20px; /* Añade un margen inferior para separar los gráficos */
+    width: 300px; /* Ajusta el ancho de los contenedores de las gráficas */
+    height: 300px; /* Ajusta el alto de los contenedores de las gráficas */
+    margin: 10px; /* Añade un margen alrededor de cada contenedor para separarlos */
+    border-radius: 10px; /* Añade bordes redondeados a los contenedores de las gráficas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave para dar profundidad */
+    flex: 1 0 30%; /* flex-grow: 1, flex-shrink: 0, flex-basis: 30% */
+    margin: 10px; /* Añade un margen alrededor de cada contenedor para separarlos */
 }
 
 /* Estilos responsivos para asegurar que el contenido se vea bien en dispositivos móviles */
 @media screen and (max-width: 768px) {
     .chart-container {
-        width: 100%; /* Hace que los gráficos ocupen todo el ancho en dispositivos móviles */
+        width: 200px;
+        height: 200px;
+        margin: 5px;
     }
 }
+
 
 footer a {
     color: white;

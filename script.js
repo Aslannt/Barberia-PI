@@ -199,5 +199,14 @@ var radarChart = new Chart(ctxRadar, {
         }
     }
 });
+document.querySelectorAll('.add-button').forEach(function(button) {
+    button.addEventListener('click', function() {
+       var title = this.getAttribute('data-title');
+       var price = this.getAttribute('data-price');
+       // Aquí puedes implementar la lógica para añadir el producto al carrito
+       console.log('Producto añadido al carrito:', title, 'Precio:', price);
+    });
+   });
+   
 
 

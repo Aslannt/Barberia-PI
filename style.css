@@ -439,3 +439,23 @@ input[type="submit"]:hover {
 footer a {
     color: white;
 }
+
+.add-button {
+    background-color: orange; /* Verde */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 2px;
+    transition: 1s all;
+    cursor: pointer;
+   }
+
+.add-button:hover{
+background: darkorange;
+transform: scale(1.2);
+}
+

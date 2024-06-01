@@ -18,8 +18,10 @@
                         <li><a href="contacto.html">Reserva</a></li>
                         <li><a href="ventas.html">Productos</a></li>
                         <!-- Enlace de inicio de sesión ahora dentro de un elemento <li> -->
-                        <li><a href="#" class="open-modal" data-open="loginModal">Iniciar Sesión</a></li>
-                    </ul>
+                        <li><a href="loginRegister.php"">Iniciar Sesión</a></li>
+                        <li><a>Carrito</a></li>
+
+                        </ul>
                 </nav>
             </div>
         </header>
@@ -77,40 +79,8 @@
 
                     </li>
                 </ul>
-                <a href="carrito.html" style="text-decoration: none;">
-                    <input type="button" id="carrito" type="submit" value="🛒 Ir al Carrito " class="enviar">
-                </a><br><br>
              </div>
 
-               <!-- Modal de Inicio de Sesión y Registro -->
-               <div id="loginModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div class="half-modal">
-                        <h2>Iniciar Sesión</h2>
-                        <form>
-                            <label for="loginEmail">Email:</label>
-                            <input type="email" id="loginEmail" name="loginEmail">
-                            <label for="loginPassword">Contraseña:</label>
-                            <input type="password" id="loginPassword" name="loginPassword">
-                            <input type="submit" value="Iniciar Sesión">
-                        </form>
-                    </div>
-                    <div class="half-modal">
-                        <h2>Registrarse</h2>
-                        <form id="registerForm">
-                            <label for="registerEmail">Email:</label>
-                            <input type="email" id="registerEmail" name="registerEmail" required>
-                            <label for="registerPassword">Contraseña:</label>
-                            <input type="password" id="registerPassword" name="registerPassword" required>
-                            <label for="confirmPassword">Confirmar Contraseña:</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                            <input type="submit" value="Registrarse">
-                        </form>                
-                    </div>
-                </div>
-            </div>
-            </div>
 
         </main>
 

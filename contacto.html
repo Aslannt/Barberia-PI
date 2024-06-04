@@ -1,133 +1,55 @@
 <!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Contacto - Barbería PI</title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-        
-
-    </head>
-    <body>
-        <header>
-            <div class="caja">
-                <h1><img src="imagenes/logo.png" alt="Logo de la Barbería Alura"></h1>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="productos.html">Servicios</a></li>
-                        <li><a href="contacto.html">Reserva</a></li>
-                        <li><a href="ventas.html">Productos</a></li>
-                        <!-- Enlace de inicio de sesión ahora dentro de un elemento <li> -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Citas - Barbería PI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="caja">
+            <h1><img src="imagenes/logo.png"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="productos.html">Servicios</a></li>
+                    <li><a href="contacto.html">Reserva</a></li>
+                    <li><a href="ventas.html">Productos</a></li>
+                    <?php if(isset($_SESSION['usuario'])): ?>
+                        <li><a href="#">Bienvenido, <?php echo $_SESSION['usuario']; ?></a></li>
+                        <li><a href="logout.php">Cerrar Sesión</a></li>
+                    <?php else: ?>
                         <li><a href="#" class="open-modal" data-open="loginModal">Iniciar Sesión</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <main class="reserva-main">
-                <form action="formulario.php" method="post">
+                    <?php endif; ?>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-                    <label for="nombreapellido">Nombre y Apellido</label>
-                    <input type="text" id="nombreapellido" name="nombreapellido" required>
-                
-                    <label for="correoelectronico">Correo Electrónico</label>
-                    <input type="email" id="correoelectronico" name="correoelectronico" required>
-                
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono" name="telefono" required>
-                
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                
-                <fieldset>
-                    <legend>¿Cómo le gustaría que lo contactemos?</legend>
-
-                    <label for="radio-email"><input type="radio" name="contacto" value="email" id="radio-email">Email</label>
-                    
-                    <label for="radio-telefono"><input type="radio" name="contacto" value="telefono" id="radio-telefono">Teléfono</label>
-                    
-                    <label for="radio-whatsapp"><input type="radio" name="contacto" value="whatsapp" id="radio-whatsapp" checked>WhatsApp</label>
-                    
-                </fieldset>
-               
-                <fieldset>
-                    <legend>¿En cuál horario prefiere ser atendido?</legend>
-                    <select>
-                        <option>Mañana</option>
-                        <option>Tarde</option>
-                        <option>Noche</option>
-                    </select>
-                </fieldset>
-                
-                <label class="checkbox"><input type="checkbox" checked>¿Le gustaría recibir novedades de la Barbería Alura?</label>                
-                
-                <input type="submit" value="Enviar formulario">
-
+    <main>
+        <div class="form-container">
+            <h2>Reserva tu cita</h2>
+            <form action="reservar.php" method="POST">
+                <input type="text" name="nombreapellido" placeholder="Nombre Completo" required>
+                <input type="email" name="correoelectronico" placeholder="Correo Electrónico" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
+                <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                <select name="horario" required>
+                    <option value="" disabled selected>Selecciona un horario</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noche">Noche</option>
+                </select>
+                <button type="submit">Reservar</button>
             </form>
-            <h2 style="font-size: 30px; font-weight: bold;">NUESTRO HORARIO DE ATENCIÓN</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Día</th>
-                        <th>Horario</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Lunes</td>
-                        <td>08h ~ 20h</td>
-                    </tr>
-                    <tr>
-                        <td>Miércoles</td>
-                        <td>08h ~ 20h</td>
-                    </tr>
-                    <tr>
-                        <td>Viernes</td>
-                        <td>08h ~ 20h</td>
-                    </tr>
-                </tbody>
-            </table>
+        </div>
+    </main>
 
-               <!-- Modal de Inicio de Sesión y Registro -->
-               <div id="loginModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div class="half-modal">
-                        <h2>Iniciar Sesión</h2>
-                        <form>
-                            <label for="loginEmail">Email:</label>
-                            <input type="email" id="loginEmail" name="loginEmail">
-                            <label for="loginPassword">Contraseña:</label>
-                            <input type="password" id="loginPassword" name="loginPassword">
-                            <input type="submit" value="Iniciar Sesión">
-                        </form>
-                    </div>
-                    <div class="half-modal">
-                        <h2>Registrarse</h2>
-                        <form id="registerForm">
-                            <label for="registerEmail">Email:</label>
-                            <input type="email" id="registerEmail" name="registerEmail" required>
-                            <label for="registerPassword">Contraseña:</label>
-                            <input type="password" id="registerPassword" name="registerPassword" required>
-                            <label for="confirmPassword">Confirmar Contraseña:</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                            <input type="submit" value="Registrarse">
-                        </form>                
-                    </div>
-                </div>
-            </div>
-
-        </main>
-        <footer>
-         
-            <img src="imagenes/logo-blanco.png">
-            <p class="copyright"> Mira nuestras estadisticas aqui -> <a href="estadisticas.html">Estadisticas</a></p>
-            <p class="copyright">&copy Copyright Barbería PI - 2024</p>
-        </footer>
-
-        <script src="script.js"></script> 
-        <script src="modal.js"></script>
-        
-    </body>
+    <footer>
+        <img src="imagenes/logo-blanco.png">
+        <p class="copyright">Mira nuestras estadísticas aquí -> <a href="estadisticas.html">Estadísticas</a></p>
+        <p>&copy Copyright Barbería PI - 2024</p>
+    </footer>
+</body>
 </html>

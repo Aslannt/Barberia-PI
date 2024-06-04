@@ -1,9 +1,9 @@
 <?php
 // Conexión a la base de datos
 $host = "localhost";
-$dbname = "barberia pi";
+$dbname = "login_register_baerberiapi.sql";
 $username = "root";
-$password = "";
+$password = "Prueba123";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

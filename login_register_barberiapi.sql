@@ -65,3 +65,13 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `reservaciones` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreapellido` varchar(100) NOT NULL,
+  `correoelectronico` varchar(100) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `mensaje` text NOT NULL,
+  `horario` varchar(50) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;

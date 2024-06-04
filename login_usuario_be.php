@@ -1,29 +1,31 @@
 <?php
+session_start();
+include 'conexion_be.php'; // Esto establece la conexión usando PDO
 
-    session_start();
+$correo = $_POST['correo'];
+$contrasena = $_POST['contrasena'];
+$contrasena = hash('sha512', $contrasena);
 
-    include 'conexion_be.php';
+// Validar login
+$query = "SELECT * FROM usuarios WHERE correo = :correo AND contrasena = :contrasena";
+$stmt = $conexion->prepare($query);
+$stmt->bindParam(':correo', $correo);
+$stmt->bindParam(':contrasena', $contrasena);
+$stmt->execute();
 
-    $correo = $_POST['correo'];
-    $contrasena = $_POST['contrasena'];
-    $contrasena = hash('sha512', $contrasena);
+if ($stmt->rowCount() > 0) {
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $_SESSION['usuario'] = $row['nombre_completo'];  // Guarda el nombre completo del usuario en la sesión
+    header("Location: index.php");
+    exit;
+} else {
+    echo '
+    <script>
+        alert("Usuario no existe");
+        window.location = "loginRegister.php";
+    </script>
+    ';
+    exit;
+}
 
-    $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo = '$correo'
-    and contrasena = '$contrasena'");
-
-    if (mysqli_num_rows($validar_login) > 0){
-        $_SESSION ['usuario'] = $correo;
-        header("location: bienvenida.php");
-        exit;
-    }else{
-        echo '
-        <script>
-            alert("Usuario no existe");
-            window.location = "loginRegister.php;
-        </script>
-
-        ';
-        exit;
-    }
-
-?>
+$conexion = null; // Es buena práctica cerrar la conexión cuando ya no sea necesaria

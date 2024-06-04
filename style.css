@@ -459,3 +459,111 @@ background: darkorange;
 transform: scale(1.2);
 }
 
+/* Agrega esto para que el botón del carrito se alinee a la derecha */
+nav ul {
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos del nav a la derecha */
+}
+
+/* Estilos específicos para la página de ventas */
+.ventas-page .ventas-logo {
+    margin-left: -110px; /* Ajusta este valor según sea necesario */
+}
+
+/* Asegúrate de que estos estilos solo afecten a la página de ventas */
+.ventas-page header .caja {
+    display: flex;
+    align-items: center;
+}
+
+.ventas-page header nav {
+    flex-grow: 1;
+}
+
+/* Ajustes del carrito */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 100px; /* Ajusta según sea necesario */
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cart-modal h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    text-align: center;
+    color: #333;
+}
+
+.cart-modal ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-modal ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-modal ul li:last-child {
+    border-bottom: none;
+}
+
+.cart-modal .remove-button {
+    background: none;
+    border: none;
+    color: #c78c19;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.cart-modal .remove-button:hover {
+    color: darkorange;
+}
+
+.cart-modal .cart-total {
+    text-align: right;
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-modal button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.cart-modal button:hover {
+    background-color: darkorange;
+}
+
+.mensaje-bienvenida {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

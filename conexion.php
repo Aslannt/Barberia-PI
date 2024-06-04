@@ -1,9 +1,10 @@
 <?php
+//conexion.php
 // Definir los detalles de conexión
 $host = 'localhost';
-$dbname = 'barberia pi';
+$dbname = 'login_register_barberiapi';
 $username = 'root';
-$password = '';
+$password = 'Prueba123';
 
 try {
     // Crear una nueva instancia de PDO

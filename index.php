@@ -9,9 +9,12 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
     </head>
 
     <body>
+        <?php include 'check_session.php';?> <!-- Aquí se incluye la verificación de sesión -->
+        
         <header>
             <div class="caja">
                 <h1><img src="imagenes/logo.png"></h1>
@@ -22,7 +25,7 @@
                         <li><a href="contacto.html">Reserva</a></li>
                         <li><a href="ventas.html">Productos</a></li>
                         <!-- Enlace de inicio de sesión ahora dentro de un elemento <li> -->
-                        <li><a href="#" class="open-modal" data-open="loginModal">Iniciar Sesión</a></li>
+                        <li><a href="loginRegister.php"">Iniciar Sesión</a></li>
                         
                     </ul>
                 </nav>

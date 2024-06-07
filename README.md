@@ -19,4 +19,24 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 }
 ?>
 
+## Configurar Docker
+
+# Iniciar los contenedores
+Abre una terminal, navega hasta el directorio donde se encuentra el archivo docker-compose.yml y ejecuta:
+
+
+docker-compose up -d
+
+Esto iniciará los contenedores de MySQL y phpMyAdmin. El contenedor de MySQL inicializará la base de datos login_register_barberiapi con los datos de tu archivo SQL.
+
+# Acceder a phpMyAdmin
+Ve a http://localhost:8080 en tu navegador y usa las siguientes credenciales para iniciar sesión en phpMyAdmin:
+
+Servidor: db
+Nombre de usuario: root
+Contraseña: Prueba123
+Desde phpMyAdmin, podrás importar otras bases de datos utilizando la interfaz de importación.
+
 ### Deivid Vanegas
+
+

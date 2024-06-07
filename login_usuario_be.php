@@ -1,22 +1,17 @@
 <?php
 session_start();
-include 'conexion_be.php'; // Esto establece la conexión usando PDO
+include 'conexion_be.php';
 
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];
 $contrasena = hash('sha512', $contrasena);
 
-// Validar login
-$query = "SELECT * FROM usuarios WHERE correo = :correo AND contrasena = :contrasena";
-$stmt = $conexion->prepare($query);
-$stmt->bindParam(':correo', $correo);
-$stmt->bindParam(':contrasena', $contrasena);
-$stmt->execute();
+$validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo = '$correo' and contrasena = '$contrasena'");
 
-if ($stmt->rowCount() > 0) {
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+if (mysqli_num_rows($validar_login) > 0){
+    $row = mysqli_fetch_assoc($validar_login);
     $_SESSION['usuario'] = $row['nombre_completo'];  // Guarda el nombre completo del usuario en la sesión
-    header("Location: index.php");
+    header("location: index.php");
     exit;
 } else {
     echo '
@@ -27,5 +22,4 @@ if ($stmt->rowCount() > 0) {
     ';
     exit;
 }
-
-$conexion = null; // Es buena práctica cerrar la conexión cuando ya no sea necesaria
+?>

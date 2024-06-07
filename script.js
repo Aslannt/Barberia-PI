@@ -3,14 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartItems = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     const cartModal = document.getElementById('cart-modal');
-    const cartButton = document.getElementById('carrito-boton');
+    const checkoutButton = document.getElementById('checkout-button');
+    const mensajeEmergenteGlobal = document.getElementById('mensajeEmergente');
 
     let total = 0;
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
             const title = this.dataset.title;
-            const price = parseFloat(this.dataset.price); // Asegúrate de que el precio se está leyendo correctamente
+            const price = parseFloat(this.dataset.price);
 
             total += price;
 
@@ -30,16 +31,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 cartTotal.textContent = total.toFixed(2);
             });
 
-            // Muestra un mensaje emergente
-            const mensajeEmergente = document.getElementById('mensajeEmergente');
-            mensajeEmergente.innerText = `Añadiste ${title} al carrito`;
+            // Mostrar mensaje emergente
+            const mensajeEmergente = cartItem.querySelector('.mensaje-emergente');
             mensajeEmergente.style.display = 'block';
-            setTimeout(() => mensajeEmergente.style.display = 'none', 3000);
+
+            setTimeout(function() {
+                mensajeEmergente.style.display = 'none';
+            }, 3000); // Oculta el mensaje después de 3 segundos
         });
     });
 
-    cartButton.addEventListener('click', function() {
-        cartModal.style.display = (cartModal.style.display === 'block') ? 'none' : 'block';
+    checkoutButton.addEventListener('click', function() {
+        // Mostrar mensaje emergente global
+        mensajeEmergenteGlobal.innerHTML = '<p>Compra finalizada</p>';
+        mensajeEmergenteGlobal.style.display = 'block';
+
+        setTimeout(function() {
+            mensajeEmergenteGlobal.style.display = 'none';
+            // Vacía el carrito
+            cartItems.innerHTML = '';
+            cartTotal.textContent = '0.00';
+            total = 0;
+            // Aquí puedes agregar la lógica para procesar la compra
+        }, 3000); // Oculta el mensaje después de 3 segundos
     });
 
     // Cerrar el carrito cuando se hace clic fuera de él

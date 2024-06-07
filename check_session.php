@@ -1,9 +1,6 @@
-<?php
-session_start(); // Asegúrate de llamar a session_start() antes de cualquier salida
-
-if (isset($_SESSION['usuario'])) {
-    echo '<span>Bienvenido, '. htmlspecialchars($_SESSION['usuario']). '</span>';
-} else {
-    echo '<span>No estás autenticado.</span>';
-}
-?>
+<?php if(isset($_SESSION['usuario']) &&!empty($_SESSION['usuario'])):?>
+    <li><a href="#">Bienvenido, <?= htmlspecialchars($_SESSION['usuario']);?></a></li>
+    <li><a href="logout.php">Cerrar Sesión</a></li>
+<?php else:?>
+    <li><a href="loginRegister.php">Iniciar Sesión</a></li>
+<?php endif;?>

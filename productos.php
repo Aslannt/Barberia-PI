@@ -13,13 +13,17 @@
                 <h1><img src="imagenes/logo.png"></h1>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="productos.html">Servicios</a></li>
-                        <li><a href="contacto.html">Reserva</a></li>
-                        <li><a href="ventas.html">Productos</a></li>
-                        <!-- Enlace de inicio de sesión ahora dentro de un elemento <li> -->
-                            <li><a href="loginRegister.php"">Iniciar Sesión</a></li>
-                        </ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="productos.php">Servicios</a></li>
+                        <li><a href="contacto.php">Reserva</a></li>
+                        <li><a href="ventas.php">Productos</a></li>
+                        <?php if(isset($_SESSION['usuario'])): ?>
+                            <li><a href="#">Bienvenido, <?php echo $_SESSION['usuario']; ?></a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
+                        <?php else: ?>
+                            <li><a href="loginRegister.php">Iniciar Sesión</a></li>
+                        <?php endif; ?>
+                    </ul>
                 </nav>
             </div>
         </header>
@@ -63,35 +67,6 @@
                     <p class="producto-precio">$ 13.000</p>
                 </li>
             </ul>
-
-            <!-- Modal de Inicio de Sesión y Registro -->
-            <div id="loginModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div class="half-modal">
-                        <h2>Iniciar Sesión</h2>
-                        <form>
-                            <label for="loginEmail">Email:</label>
-                            <input type="email" id="loginEmail" name="loginEmail">
-                            <label for="loginPassword">Contraseña:</label>
-                            <input type="password" id="loginPassword" name="loginPassword">
-                            <input type="submit" value="Iniciar Sesión">
-                        </form>
-                    </div>
-                    <div class="half-modal">
-                        <h2>Registrarse</h2>
-                        <form id="registerForm">
-                            <label for="registerEmail">Email:</label>
-                            <input type="email" id="registerEmail" name="registerEmail" required>
-                            <label for="registerPassword">Contraseña:</label>
-                            <input type="password" id="registerPassword" name="registerPassword" required>
-                            <label for="confirmPassword">Confirmar Contraseña:</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                            <input type="submit" value="Registrarse">
-                        </form>                
-                    </div>
-                </div>
-            </div>
 
         </main>
 

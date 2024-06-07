@@ -1,33 +1,4 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Citas - Barbería PI</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="caja">
-            <h1><img src="imagenes/logo.png"></h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="productos.html">Servicios</a></li>
-                    <li><a href="contacto.html">Reserva</a></li>
-                    <li><a href="ventas.html">Productos</a></li>
-                    <?php if(isset($_SESSION['usuario'])): ?>
-                        <li><a href="#">Bienvenido, <?php echo $_SESSION['usuario']; ?></a></li>
-                        <li><a href="logout.php">Cerrar Sesión</a></li>
-                    <?php else: ?>
-                        <li><a href="#" class="open-modal" data-open="loginModal">Iniciar Sesión</a></li>
-                    <?php endif; ?>
-                </ul>
-            </nav>
-        </div>
-    </header>
-=======
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -35,7 +6,6 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         
-
     </head>
     <body>
         <header>
@@ -43,13 +13,17 @@
                 <h1><img src="imagenes/logo.png" alt="Logo de la Barbería Alura"></h1>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="productos.html">Servicios</a></li>
-                        <li><a href="contacto.html">Reserva</a></li>
-                        <li><a href="ventas.html">Productos</a></li>
-                        <!-- Enlace de inicio de sesión ahora dentro de un elemento <li> -->
-                            <li><a href="loginRegister.php"">Iniciar Sesión</a></li>
-                        </ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="productos.php">Servicios</a></li>
+                        <li><a href="contacto.php">Reserva</a></li>
+                        <li><a href="ventas.php">Productos</a></li>
+                        <?php if(isset($_SESSION['usuario'])): ?>
+                            <li><a href="#">Bienvenido, <?php echo $_SESSION['usuario']; ?></a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
+                        <?php else: ?>
+                            <li><a href="loginRegister.php">Iniciar Sesión</a></li>
+                        <?php endif; ?>
+                    </ul>
                 </nav>
             </div>
         </header>
@@ -91,24 +65,9 @@
                 <label class="checkbox"><input type="checkbox" checked>¿Le gustaría recibir novedades de la Barbería Alura?</label>                
                 
                 <input type="submit" value="Enviar formulario">
-    <main>
-        <div class="form-container">
-            <h2>Reserva tu cita</h2>
-            <form action="reservar.php" method="POST">
-                <input type="text" name="nombreapellido" placeholder="Nombre Completo" required>
-                <input type="email" name="correoelectronico" placeholder="Correo Electrónico" required>
-                <input type="tel" name="telefono" placeholder="Teléfono" required>
-                <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-                <select name="horario" required>
-                    <option value="" disabled selected>Selecciona un horario</option>
-                    <option value="Mañana">Mañana</option>
-                    <option value="Tarde">Tarde</option>
-                    <option value="Noche">Noche</option>
-                </select>
-                <button type="submit">Reservar</button>
-            </form>
-        </div>
-    </main>
+        </form>
+        </main>
+
 
     <footer>
         <img src="imagenes/logo-blanco.png">

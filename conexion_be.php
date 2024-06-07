@@ -1,14 +1,7 @@
 <?php
-//conexion_be.php
-$host = "localhost";
-$dbname = "login_register_barberiapi";
-$username = "root";
-$password = "Prueba123";
+$conexion = mysqli_connect("localhost", "root", "Prueba123", "login_register_barberiapi");
 
-try {
-    $conexion = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Error de conexión: " . $e->getMessage();
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
 }
 ?>

@@ -2,10 +2,6 @@
 session_start();
 ?>
 
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesion - Barberia PI</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="loginRegisterEstilos.css">
     <link rel="stylesheet" href="reset.css">
@@ -66,12 +62,14 @@ session_start();
                 </form>
 
                 <!--Register-->
-                <form action="registro_usuario_be.php" method="POST" class="formulario__register">
+                <form action="registro_usuario_be.php" method="POST" class="formulario__register" onsubmit="return validatePasswords();">
                     <h2>Regístrarse</h2>
-                    <input type="text" placeholder="Nombre completo" name ="nombre_completo">
-                    <input type="text" placeholder="Correo Electronico" name ="correo">
-                    <input type="password" placeholder="Contraseña" name ="contrasena">
-                    <button>Regístrarse</button>
+                    <input type="text" placeholder="Nombre completo" name="nombre_completo">
+                    <input type="text" placeholder="Correo Electronico" name="correo">
+                    <input type="password" placeholder="Contraseña" name="contrasena" id="contrasena">
+                    <input type="password" placeholder="Confirmar Contraseña" name="confirmar_contrasena" id="confirmar_contrasena">
+                    <p id="error-message" style="color: red; display: none;">Las contraseñas no coinciden</p>
+                    <button type="submit">Regístrarse</button>
                 </form>
             </div>
         </div>
